@@ -5,7 +5,7 @@
 #define rz resize
 #define pb push_back
 #define mp make_pair
-#define whatIs(a) cerr << #a " is " << (a) << endl;
+#define whatIs(a) cerr << #a " iafs " << (a) << endl;
  
 const int N = 200005;
 const long long base = 1e9+7;
