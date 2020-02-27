@@ -36,7 +36,7 @@ void get(int id,int a,int b){
     if(b<x+1) return;
     if(a>x){
         kq+=T[id];
-        // cout << kq<<endl;
+        // cout <<a << " "<< id<<" " <<T[id]<<endl;
         return;
     }
     int mid= (a + b)/2;
