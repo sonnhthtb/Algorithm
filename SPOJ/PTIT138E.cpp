@@ -12,24 +12,24 @@ const long long base = 1e9+7;
 const long long inf = 1e18+7;
 
 using namespace std;
-bool checkSoChan(int n);
-bool checkSoLe(int n);
+
+void Solve(){
+    long long n;
+    cin>> n;
+    long tmp=0, dem=1;
+    while (n/10!=0)
+    {
+        tmp=(n%10+tmp>=5);
+        n = n / 10; dem=dem*10;
+    }
+    cout << (n+tmp)*dem << endl;
+}
+
 int main(){
     int T=1;
     cin >> T;
     while(T--){
-        unsigned int n;
-        cin >> n;
-        if(checkSoChan(n)==true) cout <<n<<" la so chan."<<endl;
-        else cout << n << " la so le."<<endl;
+        Solve();
     }
     return 0;
-}
-bool checkSoChan(int n){
-    if(n==0) return true;
-    if(n==1) return false;
-    else return checkSoLe(n-1);
-}
-bool checkSoLe(int n){
-    return checkSoChan(n-1);
 }
