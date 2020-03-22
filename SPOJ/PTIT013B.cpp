@@ -17,7 +17,6 @@ struct Doi{
     int Diem;
 };
 
-
 bool cmp(Doi a,Doi b){
     if(a.Diem<b.Diem) return false;
     if(a.Diem>b.Diem) return true;

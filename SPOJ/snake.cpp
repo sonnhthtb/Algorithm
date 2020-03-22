@@ -1,35 +1,39 @@
-#include <bits/stdc++.h>
-#define i64 long long
-#define fi first
-#define se second
-#define rz resize
-#define pb push_back
-#define mp make_pair
-#define whatIs(a) cerr << #a " is " << (a) << endl;
- 
-const int N = 200005;
-const long long base = 1e9+7;
-const long long inf = 1e18+7;
+// dãy con có tổng lớn nhất
+
+#include<bits/stdc++.h>
 
 using namespace std;
-bool checkSoChan(int n);
-bool checkSoLe(int n);
-int main(){
-    int T=1;
-    cin >> T;
-    while(T--){
-        unsigned int n;
-        cin >> n;
-        if(checkSoChan(n)==true) cout <<n<<" la so chan."<<endl;
-        else cout << n << " la so le."<<endl;
+
+bool check(int n, int a[]){
+    for(int i=0;i<n;i++){
+        if(a[i]>0) return true;
     }
-    return 0;
+    return false;
 }
-bool checkSoChan(int n){
-    if(n==0) return true;
-    if(n==1) return false;
-    else return checkSoLe(n-1);
-}
-bool checkSoLe(int n){
-    return checkSoChan(n-1);
+
+int main(){
+    int n;
+    cin>>n;
+    int a[n+5];
+    int sum1=0,sum2=0;
+    int max=0;
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+        if(a[i]>0) sum1+=a[i];
+        if(a[i]>max) max=a[i];
+    }
+    cout<<max;
+    sort(a,a+n);
+    for(int i=0;i<n;i++){
+        if(a[i]>0){
+            sum2+=a[i];
+            while(a[i]==a[i+1]){
+                i++;
+            }
+        }
+    }
+    if(check==false){
+        sum1=sum2=max;
+    }
+    cout<<sum2<<" "<<sum1;
 }
