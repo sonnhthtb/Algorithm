@@ -20,14 +20,14 @@ int main()
     return 0;
 }
 
-bool isLast() 
+bool isLast()
 {
     for (int i = 1; i <= k; i++)
         if (a[i] != n - k + i)
             return false;
     return true;
 }
-void Init() 
+void Init()
 {
     for (int i = 1; i <= k; i++)
     {
@@ -38,11 +38,11 @@ void Display()
 {
     for (int i = 1; i <= k; i++)
     {
-        cout << a[i]<<' ';
+        cout << a[i] << ' ';
     }
     cout << endl;
 }
-void genNext() 
+void genNext()
 {
     for (int i = k; i > 0; i--)
     {

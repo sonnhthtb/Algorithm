@@ -55,4 +55,3 @@ void genNext()
             a[i] = 0;
     }
 }
- 

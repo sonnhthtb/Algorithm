@@ -8,47 +8,59 @@
 #define whatIs(a) cerr << #a " is " << (a) << endl;
 
 const int N = 200005;
-const long long base = 1e9+7;
-const long long inf = 1e18+7;
+const long long base = 1e9 + 7;
+const long long inf = 1e18 + 7;
 
 using namespace std;
-void Display(int a[],int n){
+void Display(int a[], int n)
+{
     cout << "[";
-        for(int i=0;i<n;i++){
-            if(i==0){
-                cout << a[i];
-            }
-            else cout <<" "<< a[i];
+    for (int i = 0; i < n; i++)
+    {
+        if (i == 0)
+        {
+            cout << a[i];
         }
-        cout <<"]"<<" ";
-}
-void Try(int a[],int n){
-    int b[1000];
-    if(n<2) return;
-    for(int i=0;i<n-1;i++){
-        b[i]=a[i]+a[i+1];
+        else
+            cout << " " << a[i];
     }
-    Display(b,n-1);
-    Try(b,n-1);
+    cout << "]"
+         << " ";
+}
+void Try(int a[], int n)
+{
+    int b[1000];
+    if (n < 2)
+        return;
+    for (int i = 0; i < n - 1; i++)
+    {
+        b[i] = a[i] + a[i + 1];
+    }
+    Display(b, n - 1);
+    Try(b, n - 1);
     // Display(b,n-1);
 }
-void Solve(){
+void Solve()
+{
     int n;
     cin >> n;
-    int a[n+5];
-    for(int i=0;i<n;i++){
+    int a[n + 5];
+    for (int i = 0; i < n; i++)
+    {
         cin >> a[i];
     }
-    Display(a,n);
-    Try(a,n);
+    Display(a, n);
+    Try(a, n);
     // Display(a,n);
     cout << endl;
 }
 
-int main(){
-    int T=1;
+int main()
+{
+    int T = 1;
     cin >> T;
-    while(T--){
+    while (T--)
+    {
         Solve();
     }
     return 0;
