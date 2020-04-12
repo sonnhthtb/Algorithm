@@ -24,21 +24,19 @@ void Display(int a[], int n)
         else
             cout << " " << a[i];
     }
-    cout << "]"
-         << " ";
+    cout << "]"<< endl;
 }
 void Try(int a[], int n)
 {
     int b[1000];
     if (n < 2)
-        return;
+        return; 
     for (int i = 0; i < n - 1; i++)
     {
         b[i] = a[i] + a[i + 1];
     }
     Display(b, n - 1);
     Try(b, n - 1);
-    // Display(b,n-1);
 }
 void Solve()
 {
@@ -51,8 +49,6 @@ void Solve()
     }
     Display(a, n);
     Try(a, n);
-    // Display(a,n);
-    cout << endl;
 }
 
 int main()
