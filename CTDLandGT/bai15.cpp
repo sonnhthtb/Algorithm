@@ -6,27 +6,30 @@ void Init();
 void Display();
 bool isLast();
 void genNext();
- 
+
 //========================================//
- 
+
 //===============Main=====================//
 int main()
 {
     int T;
     cin >> T;
-    while(T--){
+    while (T--)
+    {
         int tmp;
         cin >> tmp;
-        cout << tmp<<' ';
+        cout << tmp << ' ';
         string s;
         cin >> s;
-        n=s.size();
+        n = s.size();
         for (int i = 0; i < n; i++)
         {
-            a[i+1]=s[i]-'0';
+            a[i + 1] = s[i] - '0';
         }
-        if(isLast()) cout << "BIGGEST"<<endl;
-        else{
+        if (isLast())
+            cout << "BIGGEST" << endl;
+        else
+        {
             genNext();
             Display();
         }
@@ -34,7 +37,7 @@ int main()
     return 0;
 }
 //========================================//
- 
+
 //=========Thiet lap ham==================//
 void Init()
 { //Khoi tao cau hinh dau tien
@@ -53,9 +56,9 @@ void Display()
 }
 bool isLast()
 { //Kiem tra da phai cau hinh cuoi chua
-    for (int i = 1; i <= n-1; i++)
+    for (int i = 1; i <= n - 1; i++)
     {
-        if (a[i] < a[i+1])
+        if (a[i] < a[i + 1])
             return false;
     }
     return true;
@@ -87,6 +90,5 @@ void genNext()
         r--;
     }
 }
- 
-//========================================// 
-  
+
+//========================================//

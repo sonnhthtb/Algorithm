@@ -6,7 +6,6 @@ void Init();
 void Display();
 bool isLast();
 void genNext();
- 
 
 int main()
 {
@@ -22,14 +21,14 @@ int main()
 }
 
 void Init()
-{ 
+{
     for (int i = 1; i <= n; i++)
     {
         a[i] = i;
     }
 }
 void Display()
-{ 
+{
     for (int i = 1; i <= n; i++)
     {
         cout << a[i];
@@ -37,7 +36,7 @@ void Display()
     cout << endl;
 }
 bool isLast()
-{ 
+{
     for (int i = 1; i <= n; i++)
     {
         if (a[i] != n - i + 1)
@@ -46,7 +45,7 @@ bool isLast()
     return true;
 }
 void genNext()
-{ 
+{
     int pos = -1;
     for (int i = n; i > 1; i--)
     {

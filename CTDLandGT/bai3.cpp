@@ -1,24 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
-int n,a[10000];
+int n, a[10000];
 void Init();
 bool isLast();
 void genNext();
 void Display();
-void Solve(){
+void Solve()
+{
     cin >> n;
-    a[0]=10000000;
-    for(int i = 1;i <= n; i++) cin >> a[i];
+    a[0] = 10000000;
+    for (int i = 1; i <= n; i++)
+        cin >> a[i];
     genNext();
     // if(isLast()) Init();
     Display();
 }
-int main(){
+int main()
+{
     int T;
     cin >> T;
-    while(T--){
+    while (T--)
+    {
         Solve();
-    } 
+    }
 }
 
 void Init()
@@ -32,15 +36,15 @@ void Display()
 { //In ra cau hinh
     for (int i = 1; i <= n; i++)
     {
-        cout << a[i]<<' ';
+        cout << a[i] << ' ';
     }
     cout << endl;
 }
 bool isLast()
 { //Kiem tra da phai cau hinh cuoi chua
-    for (int i = 1; i <= n-1; i++)
+    for (int i = 1; i <= n - 1; i++)
     {
-        if (a[i] < a[i+1])
+        if (a[i] < a[i + 1])
             return false;
     }
     return true;

@@ -6,34 +6,42 @@
 #define pb push_back
 #define mp make_pair
 #define whatIs(a) cerr << #a " is " << (a) << endl;
- 
+
 const int N = 200005;
-const long long base = 1e9+7;
-const long long inf = 1e18+7;
+const long long base = 1e9 + 7;
+const long long inf = 1e18 + 7;
 
 using namespace std;
 
-void Solve(){
+void Solve()
+{
     string gray;
     cin >> gray;
-    string b="";
-    b+=gray[0];
-    for(int i=1;i<gray.size();i++){
-        if(gray[i]=='0') b+=b[i-1];
-        else{
-            if(b[i-1]=='0') b+='1';
-            else b+='0';
+    string b = "";
+    b += gray[0];
+    for (int i = 1; i < gray.size(); i++)
+    {
+        if (gray[i] == '0')
+            b += b[i - 1];
+        else
+        {
+            if (b[i - 1] == '0')
+                b += '1';
+            else
+                b += '0';
         }
         // cout << b<<endl;
     }
-    cout << b<<endl;
+    cout << b << endl;
 }
 
-int main(){
-    int T=1;
+int main()
+{
+    int T = 1;
     cin >> T;
     cin.ignore();
-    while(T--){
+    while (T--)
+    {
         Solve();
     }
     return 0;

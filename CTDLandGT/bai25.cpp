@@ -1,49 +1,37 @@
 #include <bits/stdc++.h>
-#define i64 long long
-#define fi first
-#define se second
-#define rz resize
-#define pb push_back
-#define mp make_pair
-#define whatIs(a) cerr << #a " is " << (a) << endl;
- 
 const int N = 200005;
-const long long base = 1e9+7;
-const long long inf = 1e18+7;
-
 using namespace std;
 int n;
 int a[10000];
-
 void Solve(){
     cin >> n;
-    long long sum=0;
-    for(int i=0;i<n;i++){
+    long long sum = 0;
+    for (int i = 1; i <= n; i++){
         cin >> a[i];
-        sum+=a[i];
+        sum += a[i];
     }
-    if(sum%2==1) cout <<"NO";
-    else {
-        int s=sum/2;
-        int L[N]={0};
-        for(int i=0;i<=N;i++) L[i]=0;
-        L[0]=1;
-        for(int i=1;i<=n;i++){
-            for(int t=s;t>=a[i];t--){
-                if(L[t]==0 && L[t-a[i]]==1) L[t]=1;
+    if (sum % 2 == 1)   cout << "NO";
+    else{
+        int s = sum / 2;
+        int L[N] = {0};
+        for (int i = 0; i <= N; i++)  L[i] = 0;
+        L[0] = 1;
+        for (int i = 1; i <= n; i++){
+            for (int t = s; t >= a[i]; t--){
+                if (L[t] == 0 && L[t - a[i]] == 1)  L[t] = 1;
             }
         }
-        if(L[s]==1) cout << "YES";
-        else cout << "NO";
+        if (L[s] == 1)  cout << "YES";
+        else    cout << "NO";
     }
     cout << endl;
 }
-
 int main(){
-    int T=1;
+    int T = 1;
     cin >> T;
-    while(T--){
+    while (T--){
         Solve();
     }
     return 0;
 }
+//Copy by Sun
