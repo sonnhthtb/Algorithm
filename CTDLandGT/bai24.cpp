@@ -63,7 +63,7 @@ void Solve(){
     }
     sort(a,a+n);
     Try(0);
-    if(!checkn1) cout << "-1";
+    if(!check1) cout << "-1";
     cout << endl;
 }
 
