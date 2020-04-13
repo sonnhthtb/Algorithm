@@ -79,12 +79,8 @@ void Solve()
     }
     sort(a, a + n);
     Try(0);
-<<<<<<< HEAD
-    if(!check1) cout << "-1";
-=======
     if (!check1)
         cout << "-1";
->>>>>>> eceeb3f493e70bc4431fd9b89d7f2f998a8ca4b3
     cout << endl;
 }
 
