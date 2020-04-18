@@ -45,11 +45,11 @@ bool check(){
 }
 void Try2(int i){
     for(int j=1;j<=3;j++){
-            tt[i]=j;
-            if(i==4){
-                if(check()) check1=true;
-            }
-            else Try2(i+1);
+        tt[i]=j;
+        if(i==4){
+            if(check()) check1=true;
+        }
+        else Try2(i+1);
     }
 }
 void Try(int i){
@@ -69,7 +69,7 @@ void Solve(){
     for(int i=1;i<=5;i++){
         cin >> a[i];
     }
-    sort(a+1,a+6);
+    // sort(a+1,a+6);
     Init();
     Try(1);
     if(check1) cout << "YES"<<endl;
