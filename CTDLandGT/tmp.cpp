@@ -1,67 +1,42 @@
-#include <bits/stdc++.h>
+#include <iostream>
+
 using namespace std;
-int main()
+
+int n, a[12][12];
+
+void in()
 {
-	int t;
-	cin >> t;
-	while (t--)
+	int i, j;
+	for(i=1; i<=n; i++)
 	{
-		int n, k;
-		cin >> n >> k;
-		int ans[n];
-		for (int i = 0; i < n; i++)
-		{
-			cin >> ans[i];
-		}
-		sort(ans, ans + n);
-		int a[n] = {0};
-		vector<vector<int>> res;
-		while (1)
-		{
-			int sum = 0;
-			vector<int> h;
-			for (int i = 0; i < n; i++)
-			{
-				if (a[i])
-				{
-					sum += ans[i];
-					h.push_back(ans[i]);
-				}
-			}
-			if (sum == k)
-			{
-				res.push_back(h);
-			}
-			int i = n - 1;
-			while (i >= 0 && a[i] == 1)
-			{
-				a[i] = 0;
-				i--;
-			}
-			if (i == -1)
-				break;
-			else
-			{
-				a[i] = 1;
-			}
-		}
-		if (res.size() == 0)
-			cout << "-1";
-		else
-		{
-			sort(res.begin(), res.end());
-			for (int i = 0; i < res.size(); i++)
-			{
-				cout << "[";
-				int len = res[i].size();
-				for (int j = 0; j < len - 1; j++)
-				{
-					cout << res[i][j] << " ";
-				}
-				cout << res[i][len - 1] << "] ";
-			}
-		}
-		cout << endl;
+		cout<<"[";
+		for(j=1; j<i; j++)		
+			cout<<a[i][j]<<" ";
+		cout<<a[i][i]<<"]";
 	}
-	return 0;
+}
+void dequy(int i)
+{
+	int j;
+	if(i == 0)	return;
+	for(j=1; j<i;  j++)
+	{
+		a[i-1][j] = a[i][j] + a[i][j+1];
+	}
+	dequy(i-1);
+}
+main()
+{
+	int t, i;
+	cin>>t;
+	while(t--)
+	{
+		cin>>n;
+		for(i=1; i<=n; i++)
+		{
+			cin>>a[n][i];
+		}
+		dequy(n);
+		in();
+	}
 }
