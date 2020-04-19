@@ -37,7 +37,7 @@ void Solve()
 int main()
 {
     int T = 1;
-    // cin >> T;
+    cin >> T;
     while (T--)
     {
         Solve();
