@@ -14,7 +14,28 @@ const long long inf = 1e18+7;
 using namespace std;
 
 void Solve(){
-    
+    int n;
+    priority_queue<int,vector <int> ,greater<int>> pq;
+    cin >> n;
+    int a[n+5];
+    for(int i=0;i<n;i++){
+        cin >> a[i];
+        pq.push(a[i]);
+    }
+    long long sum=0;
+    long long ans=0;
+
+    while(pq.size()!=1){
+        int x=pq.top();
+        pq.pop();
+        int y=pq.top();
+        // cout << x << y <<endl;
+        pq.pop();
+        sum=x+y;
+        ans+=sum;
+        pq.push(x+y);
+    }
+    cout << ans <<endl;
 }
 
 int main(){

@@ -19,33 +19,29 @@ struct mincy{
 };
  
 bool cmp(mincy a,mincy b){
-    if(a.val>b.val) return true;
-    else if(a.val==b.val) return a.time<b.time;
-    else return false;
+    return a.val>b.val;
 }
- 
 void Solve(){
     int n;
     cin >> n;
     mincy s[n+5];
     int a[n+5],b[n+5];
+    bool check[n+5];
     for(int i=0;i<n;i++){
         int tmp;
         cin >> tmp;
         cin >>s[i].time>>s[i].val;
     }
+    memset(check,true,sizeof(check));
     sort(s,s+n,cmp);
-    for(int i=0;i<n;i++)
-        cout << s[i].time<<" "<<s[i].val<<endl;
     int job=0,sumVal=0;
     for(int i=0;i<n;i++){
-        // cout << s[i].time<<" "<<s[i].val<<endl;
-        if(s[i].time>0){
-            // cout << s[i].time<<" "<<s[i].val<<endl;
-            job++;
-            sumVal+=s[i].val;
-            for(int j=i+1;j<n;j++){
-                s[j].time--;
+        for(int j=min(n,s[i].time)-1;j>=0;j--){
+            if(check[j]){
+                job++;
+                sumVal+=s[i].val;
+                check[j]=false;
+                break;
             }
         }
     }
