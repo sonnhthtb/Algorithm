@@ -35,6 +35,7 @@ string minNumber(){
 void Solve(){
     cin >> S >> D;
     cout << minNumber()<<endl;
+    
 }
 
 int main(){

@@ -27,7 +27,7 @@ void Solve(){
     int mid=n/2;
     for(int i=mid;i<n;i++){
         // cout << a[i]<<' '<<b[i];
-        if(a[i]!=b[i] && a[i]!=b[n-i-1]) check=false;
+        if(a[i]!=b[i] && a[i]!=b[n-i-1]) check=false;   
     }
     if(check) cout << "Yes"<<endl;
     else cout << "No"<<endl;
