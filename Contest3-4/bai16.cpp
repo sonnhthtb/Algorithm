@@ -26,6 +26,7 @@ string minNumber(){
         else if(S<=9){ 
             ans=char(S+'0')+ans;
             S=0;
+            
         }
     }
     ans=char(S+'1')+ans;

@@ -16,7 +16,6 @@ using namespace std;
 void Solve(){
     int n;
     priority_queue<int,vector <int> ,greater<int>> pq;
-    queue<int> q;
     cin >> n;
     int a[n+5];
     for(int i=0;i<n;i++){

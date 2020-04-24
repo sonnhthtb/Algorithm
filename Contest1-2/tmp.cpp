@@ -1,39 +1,33 @@
-// số nhỏ nhất sao cho có d chữ số và có tổng các chữ số =s
-
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int main(){
-    int t;
-    cin>>t;
-    while(t--){
-        int s,d;
-        cin>>s>>d;
-       string x="";
-       if(s>9*d) cout<<"-1";
-       else{
-            if(s<=9){
-                for(int i=0;i<d;i++){
-                    if(i==d-1){
-                        x+=(char)(s+'0');
-                        break;
-                    }
-                    x+='1';
-                    s--;
-                }
-                cout<<x;
-            }
-            else{
-                while(s>9){
-                    x+='9';
-                    s-=9;
-                }
-                x+=(char)(s+'0');
-                reverse(x.begin(),x.end());
-                cout<<x;
-            }
-       }
-       cout<<endl;
+int main()
+{
+    long long n;
+    cin >> n;
+    long long a[n + 5];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
     }
+    long long uc = a[0];
+    int dem = 0;
+    for (int i = 1; i < n; i++)
+    {
+        uc = __gcd(uc, a[i]);
+    }
+    for (int i = 1; i  <= sqrt(uc); i++)
+    {
+        if (uc % i == 0)
+        {
+            dem++;
+            if (uc / i != i)
+            {
+                dem++;
+            }
+        }
+    }
+    cout << dem;
+    return 0;
 }
