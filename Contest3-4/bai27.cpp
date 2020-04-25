@@ -16,8 +16,8 @@ int find(i64 k,i64 n){
     if(n==1) return 1;
     double x=log(n);
     double y =log(2);
-    double z = x/y;
-    i64 tmp=pow(2,(long long)z);
+    double z = x/y;                             //Tinh logarit co so 2 cua n
+    i64 tmp=pow(2,(long long)z);                //Tim vi tri giua cua mang cuoi
     if(k==tmp) return n%2;
     else if(k%2==1) return 1;
     else if( k < tmp) return find(k,n/2);
