@@ -10,10 +10,9 @@
 const int N = 200005;
 const long long base = 1e9+7;
 const long long inf = 1e18+7;
-const long long maxn = 10000000;
+const long long maxnn = 10000009;
 using namespace std;
- 
-long long T[6*10000000], x ,kq=0, n;
+long long n,T[6*maxnn],a[maxnn],res=0;
 struct data{
     long long val;
     long long pos;
@@ -21,64 +20,49 @@ struct data{
 bool cmp(data a,data b){
     return a.val <b.val;
 }
-void update(i64 id,i64 a,i64 b){
-    i64 mid;
-    if(a>b) return;
-    if( (a>x) || (b<x)) return;
-    if(a==b)
-    {
-        // cout << a<<endl;
-        T[id]++;
-        return;
-    }
-    mid = (a + b)/2;
-    update(id*2,a,mid);
-    update(id*2+1,mid+1,b);
-    T[id]=T[id*2]+T[id*2+1];
+void update(i64 x) {
+     while (x < maxnn) {
+           T[x]++;
+           x += (x & (-x));
+     }
 }
  
-void get(i64 id,i64 a,i64 b){
-    if(a>b) return;
-    if(b<x+1) return;
-    if(a>x){
-        kq+=T[id];
-        // cout << kq<<endl;
-        return;
-    }
-    i64 mid= (a + b)/2;
-    get(id*2,a,mid);
-    get(id*2+1,mid+1,b);
+i64 get(i64 x) {
+     i64 ans=0;
+     while (x>0) {
+           ans += T[x];
+           x -= (x & (-x));
+     }
+     return ans;
 }
 void Solve(){
-    kq=0;
+    res=0;
     cin >> n;
     memset(T,0,sizeof(T));
-    i64 a[n+5],b[n+5];
-    data z[n+5];
+    i64 a[maxnn+5],b[maxnn+5];
+    data z[maxnn+5];
 
     //Thuc hien roi rac hoa du lieu
-    for(int i=0;i<n;i++){
+    for(int i=1;i<=n;i++){
         cin >> a[i];
         z[i].val=a[i];
         z[i].pos=i;
     }
-    sort(z,z+n,cmp);
+    sort(z+1,z+n+1,cmp);
     long long dem=0,last=inf;
-    for(int i=0;i<n;i++){
+    for(int i=1;i<=n;i++){
         if(z[i].val != last){
             dem++;
             last=z[i].val;
         }
         b[z[i].pos]=dem;
     }
-    //thuc hien cay phan doan
-    for(int i=0;i<n;i++){
-        x=b[i];
-        // cout << x<<' ';
-        update(1,1,maxn);
-        get(1,1,maxn);
-    }
-    cout << kq<<endl;
+    //thuc hien ferwich tree
+    for(int i=n;i>0;i--){
+		res=res+get(b[i]-1);
+		update(b[i]);
+	}
+    cout << res<<endl;
 }
  
 int main(){
