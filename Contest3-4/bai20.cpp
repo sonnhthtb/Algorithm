@@ -40,10 +40,10 @@ void Solve()
             dem--;
         }
         if (dem < 0)
-        {                                       //khi bieu thuc sai
+        {                                       // khi bieu thuc sai
             ans += vt[pos] - i;                 // doi cho tu i den vi tri cua [ tiep theo
             swap(s[i], s[vt[pos]]);
-            pos++;                              //tang vi tri [ tiep theo len 1
+            pos++;                              // tang vi tri [ tiep theo len 1
             dem = 1;                            // khoi tao lai bien kiem tra tinh dung dan
         }
     }
