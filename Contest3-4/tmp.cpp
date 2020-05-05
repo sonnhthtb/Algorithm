@@ -1,31 +1,33 @@
-// tính n^r vs r là đảo của n kq modulo
+// phần tử thứ k;
 
 #include<bits/stdc++.h>
-const long long base=1e9+7;
 
 using namespace std;
 
-long long modulo(long long x, long long r){
-    if(r==0) return 1;
-    long long m=modulo(x,r/2);
-    if(r%2==0) return m*m%base;
-    else return x*(m*m%base)%base;
+int search(int a[], int b[], int m, int n, int k){
+    int arr[m+n];
+    int i=0,j=0,d=0;
+    while(i<m && j<n){    
+        if(a[i]<b[j]) arr[d++]=a[i++];
+        else arr[d++]=a[j++];
+    }
+    while(i<m) arr[d++]=a[i++];
+    while(j<n) arr[d++]=a[j++];
+   return arr[k-1];
 }
 
 int main(){
     int t;
     cin>>t;
     while(t--){
-        long long n,r=0;
-        cin>>n;
-        long long x=n;
-        while(n>0){
-            int k=n%10;
-            r=r*10+k;
-            n/=10;
-        }
-        //cout<<x<<" "<<r;
-         cout<<modulo(x,r);
-         cout<<endl;
+        int m,n,k;
+        cin>>m>>n>>k;
+        int a[m],b[n];
+        for(int i=0;i<m;i++)
+            cin>>a[i];
+        for(int i=0;i<n;i++)
+            cin>>b[i];
+        cout<<search(a,b,m,n,k);
+        cout<<endl;
     }
 }
