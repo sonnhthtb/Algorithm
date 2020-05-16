@@ -6,36 +6,32 @@
 #define pb push_back
 #define mp make_pair
 #define whatIs(a) cerr << #a " is " << (a) << endl;
- 
+
 const int N = 200005;
 const long long base = 1e9+7;
 const long long inf = 1e18+7;
 
 using namespace std;
-void Solve()
-{
+//Tim day con tang dai nhat,tim ra duoc so vi tri sai ngan nhat chinh la ket qua cua bai toan
+void Solve(){
     int n;
     cin >> n;
-    pair <int,int> a[n + 5];
-    int dp[n + 5];
-    
-    for (int i = 0; i < n; i++)
-    {
-        cin >> a[i].fi >> a[i].se;
+    int a[n + 5];
+    long long dp[n + 5];
+    for (int i = 1; i <= n;i++){
+        cin >> a[i];
         dp[i] = 1;
     }
-    sort(a, a + n);
-    for (int i = 1; i < n; i++){
-        for (int j = 0; j < i; j++){
-            if(a[i].fi>a[j].se)
+
+    for (int i = 1; i <= n; i++){
+        for (int j = 1; j < i;j++){
+            if(a[j]<=a[i]){
                 dp[i] = max(dp[i], dp[j] + 1);
+            }
         }
     }
-    int ans = 0;
-    for (int i = 0; i < n; i++){
-        ans = max(ans, dp[i]);
-    }
-    cout << ans << endl;
+    int tmp = *max_element(dp + 1, dp + n + 1);
+    cout << n - tmp << endl;
 }
 
 int main(){
