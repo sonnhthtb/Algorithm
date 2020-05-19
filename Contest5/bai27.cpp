@@ -14,7 +14,27 @@ const long long inf = 1e18+7;
 using namespace std;
 
 void Solve(){
-    
+    int n,v;
+    cin >> n >> v;
+    int a[n + 5], c[n + 5];
+    for (int i = 0; i < n; i++){
+        cin >> a[i];
+    }
+    for (int i = 0; i < n; i++){
+        cin >> c[i];
+    }
+    long long dp[n + 5][v + 5]={0};
+    for (int i = 0; i < n;i++){
+        for (int j = 0; j <= v; j++){
+            if(i==0 || j==0)
+                dp[i][j] = 0;
+            else if(a[i]>j) 
+                dp[i][j] = dp[i - 1][j];
+            else
+                dp[i][j]=max(dp[i-1][j],dp[i-1][j-a[i]]+c[i]);
+        }
+    }
+    cout << dp[n-1][v] << endl;
 }
 
 int main(){

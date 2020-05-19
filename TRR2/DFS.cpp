@@ -82,6 +82,6 @@ int main(void)
     cout << "\n Dinh bat dau duyet:";
     cin >> u;
     DFS_Stack(u);
-    //DFS_Dequi(u);
+    DFS_Dequi(u);
     return 0;
 }
