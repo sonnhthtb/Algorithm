@@ -19,7 +19,7 @@ void Solve(){
     int a[n + 5];
     int b[m + 5];
     vector <int> s;
-    int cnt[100005];
+    int cnt[100005]={0};
     for (int i = 0; i < n; i++)
     {
         cin >> a[i];
@@ -40,18 +40,23 @@ void Solve(){
         cnt[b[i]]++;
     }
     sort(s.begin(), s.end());
-    for (int i = 0; i < s.size() - 1; i++)
+    set<int> st;
+    for (int i = 0; i < s.size(); i++)
     {
-        if(s[i]!=s[i+1])
-            cout << s[i] << ' ';
+        st.insert(s[i]);
     }
-    if(s[s.size()-1]!=s[s.size()-2])
-        cout << s[s.size() - 1];
+    set<int>::iterator it;
+    for (it = st.begin(); it != st.end();it++){
+        cout << *it << ' ';
+    }
     cout << endl;
     for (int i = 0; i < s.size() - 1; i++)
     {
-        if (s[i] == s[i + 1])
+        if (cnt[s[i]] > 1)
+        {
             cout << s[i] << ' ';
+            cnt[s[i]] = 0;
+        }
     }
     cout << endl;
 }

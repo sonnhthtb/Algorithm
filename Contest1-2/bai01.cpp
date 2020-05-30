@@ -13,7 +13,7 @@ const long long inf = 1e18 + 7;
 
 using namespace std;
 int n;
-int a[100];
+int a[N];
 void genNext();
 void Display();
 void Solve()

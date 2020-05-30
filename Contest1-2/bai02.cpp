@@ -13,7 +13,7 @@ const long long inf = 1e18 + 7;
 
 using namespace std;
 int n, k;
-int a[100];
+int a[N];
 void genNext();
 void Display();
 bool isLast() //kiem tra da phai la cau hinh cuoi chua
