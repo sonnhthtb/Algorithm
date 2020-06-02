@@ -25,7 +25,7 @@ void Solve(){
     for (int i = 0; i < n; i++)
     {
         for (int j = c; j >= a[i];j--){
-            if(dp[j]==1 || dp[j-a[i]]==1)
+            if(dp[j] == 1 || dp[j-a[i]] == 1)
                 dp[j] = 1;
         }
     }
