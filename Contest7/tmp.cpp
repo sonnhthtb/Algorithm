@@ -6,47 +6,37 @@ using namespace std;
 
 int main()
 {
-    int t;
-    cin >> t;
-    while (t--)
+    int n;
+    cin >> n;
+    cin.ignore();
+    vector<int> a[10000];
+    for (int i = 1; i <= n; i++)
     {
         string s;
-        cin >> s;
-        stack<char> sunn;
-        for (int i = 0; i < s.size(); i++)
-        {
-            if (sunn.empty())
-                sunn.push(s[i]);
-            else
-            {
-                if (sunn.top() == '(')
-                {
-                    if (s[i] == ')')
-                        sunn.pop();
-                    else
-                        sunn.push(s[i]);
-                }
-                else if (sunn.top() == '[')
-                {
-                    if (s[i] == ']')
-                        sunn.pop();
-                    else
-                        sunn.push(s[i]);
-                }
-                else if (sunn.top() == '{')
-                {
-                    if (s[i] == '}')
-                        sunn.pop();
-                    else
-                        sunn.push(s[i]);
-                }
+        getline(cin, s);
+        int tmp = 0;
+        for (int j = 0; j <= s.size();j++){
+            if(j == s.size() || s[j]==' ' ){
+                a[i].push_back(tmp);
+                tmp = 0;
             }
-            cout << sunn.top() <<s[i]<< endl;
+            else{
+                tmp = tmp * 10 + s[j] - '0';
+            }
         }
-        if (!sunn.empty())
-            cout << "NO";
-        else
-            cout << "YES";
-        cout << endl;
+    }
+    for (int i = 0; i < n; i++)
+    {
+        sort(a[i].begin(), a[i].end());
+    }
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < a[i].size(); j++)
+        {
+            if (a[i][j] > i)
+            {
+                cout << i << " " << a[i][j] << endl;
+            }
+        }
     }
 }
