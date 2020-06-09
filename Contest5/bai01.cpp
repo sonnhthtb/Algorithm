@@ -6,29 +6,34 @@
 #define pb push_back
 #define mp make_pair
 #define whatIs(a) cout << #a " is " << (a) << endl;
- 
+
 const int N = 200005;
-const long long base = 1e9+7;
-const long long inf = 1e18+7;
- 
+const long long base = 1e9 + 7;
+const long long inf = 1e18 + 7;
+
 using namespace std;
- 
+
 int Dp[2005][2005];
- 
-void Solve(){
-    string a,b;
-    memset(Dp,0,sizeof(Dp));
+
+void Solve()
+{
+    string a, b;
+    memset(Dp, 0, sizeof(Dp));
     cin >> a;
     cin.ignore();
     cin >> b;
-    int n=a.size();
-    int m=b.size();
-    a=' '+a;
-    b=' '+b;
-    for(int i=1;i<=n;i++){
-        for(int j=1;j<=m;j++){
-            if(a[i]==b[j]) Dp[i][j]=Dp[i-1][j-1]+1;
-            else Dp[i][j]=max(Dp[i-1][j],Dp[i][j-1]);
+    int n = a.size();
+    int m = b.size();
+    a = ' ' + a;
+    b = ' ' + b;
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= m; j++)
+        {
+            if (a[i] == b[j])
+                Dp[i][j] = Dp[i - 1][j - 1] + 1;
+            else
+                Dp[i][j] = max(Dp[i - 1][j], Dp[i][j - 1]);
         }
     }
     // for(int i=1;i<=n;i++){
@@ -37,13 +42,15 @@ void Solve(){
     //     }
     //     cout << endl;
     // }
-    cout << Dp[n][m]<<endl;
+    cout << Dp[n][m] << endl;
 }
-int main(){
-    int T=1;
+int main()
+{
+    int T = 1;
     cin >> T;
-    while(T--){
+    while (T--)
+    {
         Solve();
     }
     return 0;
-} 
+}

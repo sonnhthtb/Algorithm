@@ -16,7 +16,7 @@ using namespace std;
 void Solve(){
     int n;
     cin >> n;
-    int a[n + 5];
+    long long a[n + 5];
     for (int i = 0; i < n; i++){
         cin >> a[i];
     }
