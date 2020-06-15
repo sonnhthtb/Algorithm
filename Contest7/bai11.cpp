@@ -4,9 +4,9 @@
 using namespace std;
 string s;
 int Operator(char c){
-    if(c == '^')
+    if(c == '^' || c == '%')
         return 3;
-    else if(c == '*' || c == '/' || c == '%')
+    else if(c == '*' || c == '/')
         return 2;
     else if(c == '+' || c == '-')
         return 1;
@@ -52,7 +52,8 @@ void Solve(){
     while(st.top() != '0'){
         char c = st.top();
         st.pop();
-        ans += c;
+        if(c!='(')
+            ans += c;
     }
     cout << ans << endl;
 }
