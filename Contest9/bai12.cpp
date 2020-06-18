@@ -16,6 +16,7 @@ void BFS(int s)
     {
         int x = mincy.front();
         mincy.pop();
+        cout << x << " ";
         for (int i = 0; i < ke[x].size(); i++)
         {
             if (!visit[ke[x][i]])
@@ -40,7 +41,7 @@ int main()
         {
             ke[i].clear();
         }
-        
+
         for (int i = 1; i <= v; i++)
         {
             int x, y;
